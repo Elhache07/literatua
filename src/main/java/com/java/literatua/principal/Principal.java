@@ -34,14 +34,8 @@ public class Principal {
         while (opcion != 0) {
             var menu = """
                     1 - Busqueda de libros por titulo
-                    2 - Buscar episodio
-                    3 - Mostrar Serie Buscadas
-                    4 - Buscar serie por titulo
-                    5 - Top 5 Mejores series
-                    6 - Buscar serie por categoria
-                    7 - Filtrar Series
-                    8 - Buscar Episodios por titulo
-                    9 - Top 5 episodios
+                    2 - Buscar libros buscados
+                 
                     
                     0 - Salir
                     """;
@@ -52,6 +46,9 @@ public class Principal {
             switch (opcion) {
                 case 1:
                     buscarLibroWed();
+                    break;
+                case 2:
+                    mostrarLibroBuscados();
                     break;
 
                 case 0:
@@ -76,13 +73,18 @@ public class Principal {
         System.out.println(datos);
 
 
-//        libros=new ArrayList<Libro>();
-//
-//        libros=libroRepository.findAll();
-//
-//        libros.stream()
-//                .forEach(System.out::println);
 
+    }
+
+    private void mostrarLibroBuscados(){
+
+
+        libros=new ArrayList<>();
+
+        libros=libroRepository.findAll();
+
+        libros.stream()
+                .forEach(System.out::println);
     }
 
     private DatosLibro getDatosLibro() {
