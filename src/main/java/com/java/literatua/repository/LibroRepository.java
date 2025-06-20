@@ -1,5 +1,6 @@
 package com.java.literatua.repository;
 
+import com.java.literatua.model.Autor;
 import com.java.literatua.model.Libro;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,5 +15,11 @@ public interface LibroRepository extends JpaRepository<Libro, Long> {
 
     @Query("SELECT e FROM Libro s JOIN s.titulo e ")
     List<Libro> muestraLosTitulosDeLosLibros(Libro libro);
+
+
+    @Query("SELECT DISTINCT l FROM Libro l JOIN FETCH l.autor")
+    Libro findAllConAutores();
+
+
 
 }

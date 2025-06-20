@@ -1,15 +1,45 @@
 package com.java.literatua.model;
 
+import jakarta.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.Embeddable;
+import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-
+@Entity
+@Table(name = "autores")
 public class Autor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
     private Integer birth_year;
     private Integer death_year;
+
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Libro> libros;
+
+
+
+    // Constructor vacío requerido por JPA
+    public Autor() {}
+
+    // Opcional: constructor completo
+    public Autor(String name) {
+        this.name = name;
+        this.birth_year = birth_year;
+        this.death_year = death_year;
+    }
+
+    // Getters y setters...
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -35,9 +65,16 @@ public class Autor {
         this.death_year = death_year;
     }
 
+
+    // toString, etc.
+
+
     @Override
     public String toString() {
-        return name + " (" + birth_year + " - " + death_year + ")";
+        return "Autor{" +
+                ", Nombre='" + name + '\'' +
+                ", Año de Nacimiento =" + birth_year +
+                ", Año de Muerto =" + death_year +
+                '}';
     }
 }
-
