@@ -16,5 +16,10 @@ public class AutorService {
     public List<Autor> listarTodosLosAutores() {
         return autorRepository.findAll();
     }
+
+    public List<Autor> listarAutoresPorTiempoVivido(Integer inicio, Integer fin) {
+
+        return autorRepository.listarAutoresPorTiempo(inicio,fin);
+    }
 }
 

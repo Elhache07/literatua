@@ -95,6 +95,27 @@ public class Principal {
     }
 
     private void listarDeAutoresPorTiempoVivido() {
+
+        System.out.println("Ingrese el año de nacido");
+        var nacido = teclado.nextInt();
+
+        System.out.println("Ingrese el año de muerte");
+        var muerto = teclado.nextInt();
+
+
+        List<Autor> autores = autorService.listarAutoresPorTiempoVivido(nacido,muerto);
+
+        // Usamos un Set para evitar nombres repetidos
+        Set<String> nombresUnicos = new HashSet<>();
+
+        for (Autor autor : autores) {
+            if (nombresUnicos.add(autor.getName())) {  // Solo muestra si no se ha agregado antes
+                System.out.println("Autor: " + autor.getName() +
+                        " (Nacido: " + autor.getBirth_year() +
+                        ") Muerte: "+autor.getDeath_year()+")");
+            }
+        }
+
     }
 
     private void ListaDeAutores() {

@@ -8,4 +8,10 @@ import java.util.List;
 
 public interface AutorRepository extends JpaRepository<Autor, Long> {
 
+
+
+    @Query("SELECT a FROM Autor a WHERE a.birth_year <= :fechaFin AND (a.death_year IS NULL OR a.death_year >= :fechaInicio)")
+    List<Autor> listarAutoresPorTiempo(Integer fechaInicio, Integer fechaFin);
+
+
 }
