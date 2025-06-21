@@ -1,76 +1,92 @@
-# 📚 Proyecto de Búsqueda de Libros - Spring Boot
+# 📚 Aplicación de Búsqueda de Libros
 
-Este es un proyecto de consola desarrollado en Java utilizando **Spring Boot**, que permite buscar libros mediante la API de [Gutendex](https://gutendex.com/) y almacenar los resultados en una base de datos.
+Esta es una aplicación Java desarrollada con Spring Boot que permite buscar libros mediante una API pública, guardar información relevante en una base de datos y consultar datos sobre libros y autores.
 
 ## 🚀 Características
 
-- Buscar libros por título desde la consola.
-- Mostrar todos los libros previamente buscados y almacenados.
-- Persistencia de datos usando Spring Data JPA.
-- Consumo de APIs externas.
-- Conversión automática de datos JSON a objetos Java.
+- 🔍 Buscar libros por título utilizando la API de Gutendex.
+- 📖 Guardar libros y autores en una base de datos relacional.
+- 👨‍💼 Listar todos los autores únicos encontrados.
+- ⌛ Filtrar autores vivos en un rango de años específico.
+- 🌍 Consultar cantidad de libros por idioma (Español o Inglés).
 
-## 📦 Tecnologías utilizadas
+## 🧰 Tecnologías utilizadas
 
 - Java 17+
 - Spring Boot
-- Spring Data JPA
-- Gutendex API (para búsqueda de libros)
-- Jackson (para conversión JSON)
-- H2/MySQL/PostgreSQL (puede adaptarse a cualquier base de datos relacional)
+- JPA / Hibernate
+- H2 / PostgreSQL / otro RDBMS
+- API pública de libros: [Gutendex](https://gutendex.com/)
 - Maven
 
-## 🧠 Arquitectura del Proyecto
+## 📦 Estructura del Proyecto
 
-- `Principal`: Clase principal con el menú de interacción.
-- `ConsumoApi`: Realiza peticiones HTTP a la API externa.
-- `ConvierteDatos`: Convierte los datos JSON obtenidos en objetos Java.
-- `LibroRepository`: Interfaz de Spring Data JPA para operaciones CRUD.
-- `Libro`, `DatosLibro`, `RespuestaAPI`: Clases modelo para representar los datos de los libros.
+com.java.literatua
+├── dto
+│ └── LibroDTO.java
+├── model
+│ ├── Autor.java
+│ ├── DatosLibro.java
+│ ├── Libro.java
+│ └── RespuestaAPI.java
+├── repository
+│ ├── AutorRepository.java
+│ └── LibroRepository.java
+├── service
+│ ├── AutorService.java
+│ ├── ConsumoApi.java
+│ └── ConvierteDatos.java
+└── principal
+└── Principal.java
 
-## 📋 Cómo usarlo
+bash
+Copiar
+Editar
 
-1. **Clona el repositorio**
-   ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
-   cd tu_repositorio
-Configura la base de datos
-Asegúrate de tener configurado application.properties con la URL, usuario y contraseña correctos para tu base de datos.
+## 🖥️ Ejecución de la aplicación
 
-Ejecuta el proyecto
-Puedes ejecutar el proyecto directamente desde tu IDE o con Maven:
+1. Clona este repositorio:
 
+```bash
+git clone https://github.com/tu-usuario/tu-repositorio.git
+cd tu-repositorio
+Asegúrate de tener configurado Java y Maven en tu entorno.
 
-mvn spring-boot:run
-Interacción desde consola
-El programa te mostrará un menú como este:
+Compila y ejecuta:
 
+bash
+Copiar
+Editar
+./mvnw spring-boot:run
+Al iniciar, verás un menú en consola con las opciones disponibles.
 
+📋 Menú principal
+text
+Copiar
+Editar
 1 - Búsqueda de libros por título
-2 - Buscar libros buscados
+2 - Mostrar libros buscados
+3 - Lista de autores
+4 - Listar autores vivos en determinado año
+5 - Libros por idioma
 0 - Salir
-📚 Ejemplo de uso
-Al seleccionar la opción 1 e ingresar un título, el sistema buscará el libro en Gutendex y mostrará la información como:
+📡 APIs externas
+Gutendex Books API
 
+(Posiblemente planificado) OMDb API (URL incluida pero no utilizada actualmente)
 
-Título: Don Quijote
-Autor: Miguel de Cervantes
-Idioma: [es]
-Descargas: 15324
-El libro se guardará automáticamente en la base de datos.
+🧪 Recomendaciones
+Para persistencia local, puedes utilizar H2 en modo consola para ver la base de datos (http://localhost:8080/h2-console).
 
-⚠️ Nota
-Este proyecto utiliza una API pública (https://gutendex.com) por lo que los resultados pueden variar y la disponibilidad depende del servicio externo.
+Asegúrate de tener una estrategia de inicialización adecuada (spring.jpa.hibernate.ddl-auto=create/update en application.properties).
 
-✅ Pendientes o mejoras futuras
-Implementar manejo de errores más robusto.
+🤝 Contribuciones
+¡Las contribuciones son bienvenidas! Por favor abre un pull request o issue para mejorar el proyecto.
 
-Crear una interfaz web usando Spring MVC o Thymeleaf.
+📄 Licencia
+Este proyecto está bajo la licencia MIT - ver el archivo LICENSE para más detalles.
 
-Agregar pruebas unitarias y de integración.
-
-Paginación en la búsqueda de libros.
-
-Autor: MANUEL HERNANDEZ
-Licencia: MIT
+yaml
+Copiar
+Editar
 
