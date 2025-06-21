@@ -54,6 +54,7 @@ public class Principal {
                     2 - Mostrar libros buscados
                     3 - Lista de autores
                     4 - Listar autores vivos en determinado año
+                    5 - Libros Por Idioma
                  
                     
                     0 - Salir
@@ -78,6 +79,9 @@ public class Principal {
                         case 4:
                             listarDeAutoresPorTiempoVivido();
                             break;
+                case 5:
+                    libroPorIdioma();
+                    break;
 
 
                 case 0:
@@ -92,6 +96,48 @@ public class Principal {
         }
 
 
+    }
+    private void libroPorIdioma() {
+        var menu = """
+            //////////////////////////////////////////////
+            
+            1 - [ES] Español
+            2 - [EN] English
+            
+            0 - Volver al menú principal
+            
+            /////////////////////////////////////////////
+            """;
+        System.out.println(menu);
+
+        int opcion = teclado.nextInt();
+        teclado.nextLine(); // Limpia el buffer
+
+        switch (opcion) {
+            case 1:
+                obtenerEspañol();
+                break;
+            case 2:
+                obtenEnglish();
+                break;
+            case 0:
+                // Vuelve automáticamente al menú principal
+                break;
+            default:
+                System.out.println("Opción no válida");
+                break;
+        }
+    }
+
+
+    private void obtenerEspañol() {
+        long cantidad = libroRepository.contarLibrosPorIdioma("es");
+        System.out.println("Cantidad de libros en Español: " + cantidad);
+    }
+
+    private void obtenEnglish() {
+        long cantidad = libroRepository.contarLibrosPorIdioma("en");
+        System.out.println("Cantidad de libros en Inglés: " + cantidad);
     }
 
     private void listarDeAutoresPorTiempoVivido() {
