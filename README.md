@@ -39,9 +39,7 @@ com.java.literatua
 └── principal
 └── Principal.java
 
-bash
-Copiar
-Editar
+
 
 ## 🖥️ Ejecución de la aplicación
 
@@ -54,16 +52,12 @@ Asegúrate de tener configurado Java y Maven en tu entorno.
 
 Compila y ejecuta:
 
-bash
-Copiar
-Editar
+
 ./mvnw spring-boot:run
 Al iniciar, verás un menú en consola con las opciones disponibles.
 
 📋 Menú principal
-text
-Copiar
-Editar
+
 1 - Búsqueda de libros por título
 2 - Mostrar libros buscados
 3 - Lista de autores
@@ -86,7 +80,4 @@ Asegúrate de tener una estrategia de inicialización adecuada (spring.jpa.hiber
 📄 Licencia
 Este proyecto está bajo la licencia MIT - ver el archivo LICENSE para más detalles.
 
-yaml
-Copiar
-Editar
 
