@@ -77,7 +77,8 @@ Asegúrate de tener una estrategia de inicialización adecuada (spring.jpa.hiber
 🤝 Contribuciones
 ¡Las contribuciones son bienvenidas! Por favor abre un pull request o issue para mejorar el proyecto.
 
-📄 Licencia
-Este proyecto está bajo la licencia MIT - ver el archivo LICENSE para más detalles.
+📄 Autor Manuel — [Elhache07]
+
+Licencia Este proyecto está bajo licencia MIT — libre para usar, modificar y compartir.
 
 
